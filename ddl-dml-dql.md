@@ -1,6 +1,6 @@
 # DDL, DML y DQL
 
-## Teoria (resumen corto, en tus palabras)
+## Teoria 
 
 SQL se divide en sublenguajes segun que hacen: unos definen la estructura, otros manipulan los datos y otros solo consultan.
 
@@ -153,7 +153,7 @@ WHERE cliente_id = (
 );
 ```
 
-## Errores comunes / gotchas
+## Errores comunes 
 
 | Error | Por que pasa | Como evitarlo |
 | :--- | :--- | :--- |
