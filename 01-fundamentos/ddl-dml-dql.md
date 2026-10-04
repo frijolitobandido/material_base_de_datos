@@ -1,8 +1,8 @@
 # DDL, DML y DQL
 
-## Teoria 
+## Teoria
 
-SQL se divide en sublenguajes segun que hacen: unos definen la estructura, otros manipulan los datos y otros solo consultan.
+SQL se divide en sublenguajes segun que hacen: unos definen la estructura, otros manipulan los datos y otros solo consultan. Esta division es parte del estandar y se mantiene igual en todos los motores.
 
 | Sublenguaje | Nombre completo | Que hace | Comandos principales |
 | :--- | :--- | :--- | :--- |
@@ -10,7 +10,7 @@ SQL se divide en sublenguajes segun que hacen: unos definen la estructura, otros
 | DML | Data Manipulation Language | Modifica los datos dentro de las tablas | `INSERT`, `UPDATE`, `DELETE` |
 | DQL | Data Query Language | Consulta datos, no los modifica | `SELECT` |
 
-Diferencia importante: en MySQL, la mayoria de comandos DDL hacen commit automatico (no se pueden revertir con `ROLLBACK`), mientras que DML si participa en transacciones. `TRUNCATE` parece DML pero en realidad es DDL: borra todos los registros y reinicia el `AUTO_INCREMENT`, y no se puede revertir como un `DELETE` dentro de una transaccion.
+Diferencia importante: en la mayoria de motores (MySQL incluido), los comandos DDL hacen commit automatico (no se pueden revertir con `ROLLBACK`), mientras que DML si participa en transacciones. `TRUNCATE` parece DML pero en realidad es DDL: borra todos los registros y reinicia el contador de autoincremento, y no se puede revertir como un `DELETE` dentro de una transaccion.
 
 ## Sintaxis / codigo base
 
@@ -54,7 +54,7 @@ DROP TABLE tabla_temporal;
 
 ### DML: insertar, actualizar y borrar datos
 
-> Cuidado con `UPDATE` y `DELETE`: siempre usar `WHERE` para indicar que fila afectar. Si se omite, se modifica o borra **toda la tabla**.
+> Cuidado con `UPDATE` y `DELETE`: siempre usar `WHERE` para indicar que fila afectar. Si se omite, se modifica o borra **toda la tabla**, y esto aplica en cualquier motor SQL.
 
 **Esqueleto — insertar:**
 ```sql
@@ -157,9 +157,26 @@ WHERE cliente_id = (
 
 | Error | Por que pasa | Como evitarlo |
 | :--- | :--- | :--- |
-| `ALTER TABLE` dentro de una transaccion esperando poder revertirlo | DDL hace commit automatico en MySQL | Hacer los cambios de estructura fuera de transacciones largas, con respaldo previo |
+| `ALTER TABLE` dentro de una transaccion esperando poder revertirlo | DDL hace commit automatico en la mayoria de motores | Hacer los cambios de estructura fuera de transacciones largas, con respaldo previo |
 | Confundir `DELETE` con `TRUNCATE` | Ambos "vacian" la tabla, pero se comportan distinto | `DELETE` es DML (revertible, admite WHERE); `TRUNCATE` es DDL (todo o nada) |
 | Olvidar el `WHERE` en `UPDATE`/`DELETE` | Falta de costumbre o prisa | Escribir primero el `SELECT` con la misma condicion para verificar antes de ejecutar |
+
+## Ejercicio
+
+Tienes la tabla `pedidos` del ejemplo de arriba. Escribe la sentencia DML para marcar como `'cancelado'` el pedido con `id = 2`, y explica por que esto es DML y no DDL.
+
+<details>
+<summary>Ver respuesta</summary>
+
+```sql
+UPDATE pedidos
+SET estado = 'cancelado'
+WHERE id = 2;
+```
+
+Es DML porque modifica el **contenido** (los datos) de una fila existente, no la estructura de la tabla. Si en vez de eso hubieras agregado una columna nueva o cambiado el tipo de una columna, seria DDL.
+
+</details>
 
 ## Relacionado con
 - [Tipos de datos](tipos-de-datos.md) — se usan al definir columnas en el DDL.
