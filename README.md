@@ -1,94 +1,199 @@
-# SQL Notes — Repaso activo y asociativo
+# Guía de Bases de Datos — Teoría, Repaso y Práctica
 
-Repositorio personal para repasar **SQL** de forma constante: teoria corta, sintaxis, ejemplos aplicados y ejercicios.
+Repositorio personal para estudiar **bases de datos y SQL** mediante teoría, tablas comparativas, ejemplos aplicados, resultados simulados y ejercicios guiados.
 
-El contenido se centra en SQL estandar (ANSI SQL), que es el que comparten la mayoria de motores (PostgreSQL, SQL Server, Oracle, SQLite, etc.). Los ejemplos se ejecutan y verifican sobre **MySQL**, asi que cuando algo es una extension o un comportamiento propio de MySQL (y no del estandar), se marca explicitamente con una nota. De esta forma lo aprendido sirve mas alla de un solo motor.
+La guía está organizada de forma progresiva: primero se estudian los fundamentos, luego las consultas, el diseño, el rendimiento, las transacciones y finalmente la seguridad y la práctica.
 
-## Mapa general
+Los ejemplos se basan principalmente en SQL estándar. Cuando una característica depende de un motor específico, como MySQL, se indicará dentro de la explicación.
+
+**Fecha de actualización:** 4 de octubre de 2026
+
+---
+
+## Mapa general de la guía
 
 | Carpeta | Contenido |
 | :--- | :--- |
-| `01-fundamentos/` | Tipos de datos, DDL/DML/DQL, constraints |
-| `02-consultas/` | Joins, subqueries, agregaciones, window functions |
-| `03-indices-performance/` | Indices, EXPLAIN, optimizacion de queries |
-| `04-transacciones/` | ACID, isolation levels, locks |
-| `05-diseno/` | Normalizacion, modelado ER |
-| `ejercicios/` | Banco adicional de preguntas de repaso |
-| `errores-que-cometi.md` | Bugs y confusiones reales (el mejor material de repaso) |
+| `01-fundamentos/` | Pendiente |
+| `02-consultas-basicas/` | Pendiente |
+| `03-consultas-relacionales/` | Pendiente |
+| `04-diseno-modelado/` | Pendiente |
+| `05-vistas-programabilidad/` | Pendiente |
+| `06-indices-performance/` | Pendiente |
+| `07-transacciones-concurrencia/` | Pendiente |
+| `08-seguridad-administracion/` | Pendiente |
+| `09-practica/` | Pendiente |
+| `recursos/` | Pendiente |
 
-## Indice por tema
+---
 
-### 01 - Fundamentos
-| Archivo | Estado |
+## Índice por tema
+
+### 01 — Fundamentos
+
+| Archivo | Contenido |
 | :--- | :--- |
-| [Tipos de datos](01-fundamentos/tipos-de-datos.md) | Listo |
-| [DDL, DML, DQL](01-fundamentos/ddl-dml-dql.md) | Listo |
-| [Constraints](01-fundamentos/constraints.md) | Listo |
+| [Tipos de datos](01-fundamentos/tipos-de-datos.md) | Tipos numéricos, texto, fechas, booleanos, JSON y binarios |
+| [DDL, DML y DQL](01-fundamentos/ddl-dml-dql.md) | Definir estructuras, manipular registros y consultar datos |
+| `01-fundamentos/constraints.md` | Pendiente |
+| `01-fundamentos/claves-primarias-y-foraneas.md` | Pendiente |
+| `01-fundamentos/null-y-valores-por-defecto.md` | Pendiente |
 
-### 02 - Consultas
-| Archivo | Estado |
+### 02 — Consultas básicas
+
+| Archivo | Contenido |
 | :--- | :--- |
-| Joins | Pendiente |
-| Subqueries | Pendiente |
-| Agregaciones y GROUP BY | Pendiente |
-| Window functions | Pendiente |
+| `02-consultas-basicas/select-from.md` | Pendiente |
+| `02-consultas-basicas/where-operadores.md` | Pendiente |
+| `02-consultas-basicas/order-by-limit.md` | Pendiente |
+| `02-consultas-basicas/funciones-sql.md` | Pendiente |
+| `02-consultas-basicas/case-when.md` | Pendiente |
 
-### 03 - Indices y performance
-| Archivo | Estado |
+### 03 — Consultas relacionales y avanzadas
+
+| Archivo | Contenido |
 | :--- | :--- |
-| Indices basicos | Pendiente |
-| EXPLAIN / ANALYZE | Pendiente |
-| Optimizacion de queries | Pendiente |
+| `03-consultas-relacionales/joins.md` | Pendiente |
+| `03-consultas-relacionales/subqueries.md` | Pendiente |
+| `03-consultas-relacionales/cte-with.md` | Pendiente |
+| `03-consultas-relacionales/agregaciones-group-by.md` | Pendiente |
+| `03-consultas-relacionales/having.md` | Pendiente |
+| `03-consultas-relacionales/window-functions.md` | Pendiente |
+| `03-consultas-relacionales/union-intersect-except.md` | Pendiente |
 
-### 04 - Transacciones
-| Archivo | Estado |
+### 04 — Diseño y modelado
+
+| Archivo | Contenido |
 | :--- | :--- |
-| ACID | Pendiente |
-| Isolation levels | Pendiente |
-| Locks | Pendiente |
+| `04-diseno-modelado/normalizacion.md` | Pendiente |
+| `04-diseno-modelado/desnormalizacion.md` | Pendiente |
+| `04-diseno-modelado/modelado-er.md` | Pendiente |
+| `04-diseno-modelado/relaciones-entre-tablas.md` | Pendiente |
+| `04-diseno-modelado/reglas-de-integridad.md` | Pendiente |
 
-### 05 - Diseno
-| Archivo | Estado |
+### 05 — Vistas y programabilidad
+
+| Archivo | Contenido |
 | :--- | :--- |
-| Normalizacion | Pendiente |
-| Modelado ER | Pendiente |
+| `05-vistas-programabilidad/views.md` | Pendiente |
+| `05-vistas-programabilidad/stored-procedures.md` | Pendiente |
+| `05-vistas-programabilidad/funciones-sql.md` | Pendiente |
+| `05-vistas-programabilidad/triggers.md` | Pendiente |
 
-## Como se conectan los temas (vista rapida)
+### 06 — Índices y rendimiento
 
-| Tema origen | Se conecta con | Por que |
+| Archivo | Contenido |
+| :--- | :--- |
+| `06-indices-performance/indices-basicos.md` | Pendiente |
+| `06-indices-performance/indices-compuestos.md` | Pendiente |
+| `06-indices-performance/explain-analyze.md` | Pendiente |
+| `06-indices-performance/query-optimization.md` | Pendiente |
+| `06-indices-performance/problemas-n-plus-one.md` | Pendiente |
+
+### 07 — Transacciones y concurrencia
+
+| Archivo | Contenido |
+| :--- | :--- |
+| `07-transacciones-concurrencia/acid.md` | Pendiente |
+| `07-transacciones-concurrencia/commit-rollback.md` | Pendiente |
+| `07-transacciones-concurrencia/isolation-levels.md` | Pendiente |
+| `07-transacciones-concurrencia/locks.md` | Pendiente |
+| `07-transacciones-concurrencia/deadlocks.md` | Pendiente |
+
+### 08 — Seguridad y administración
+
+| Archivo | Contenido |
+| :--- | :--- |
+| `08-seguridad-administracion/usuarios-roles-permisos.md` | Pendiente |
+| `08-seguridad-administracion/sql-injection.md` | Pendiente |
+| `08-seguridad-administracion/copias-de-seguridad.md` | Pendiente |
+| `08-seguridad-administracion/restauracion.md` | Pendiente |
+| `08-seguridad-administracion/auditoria.md` | Pendiente |
+
+### 09 — Práctica
+
+| Archivo | Contenido |
+| :--- | :--- |
+| `09-practica/ejercicios-basicos.md` | Pendiente |
+| `09-practica/ejercicios-intermedios.md` | Pendiente |
+| `09-practica/ejercicios-avanzados.md` | Pendiente |
+| `09-practica/casos-practicos.md` | Pendiente |
+| `09-practica/soluciones.md` | Pendiente |
+
+---
+
+## Recursos
+
+| Archivo | Contenido |
+| :--- | :--- |
+| `recursos/glosario.md` | Pendiente |
+| `recursos/errores-comunes.md` | Pendiente |
+| `recursos/comandos-consulta-rapida.md` | Pendiente |
+| `recursos/diferencias-motores.md` | Pendiente |
+
+---
+
+## Cómo se conectan los temas
+
+| Tema de partida | Se conecta con | Motivo |
 | :--- | :--- | :--- |
-| Tipos de datos | Indices | El tipo de columna afecta tamano y velocidad del indice |
-| Constraints (FK) | Joins, Transacciones | Determinan integridad referencial y comportamiento en relaciones |
-| Normalizacion | Joins | Mas normalizacion suele significar mas joins al consultar |
-| Indices | EXPLAIN | El plan de ejecucion cambia segun los indices disponibles |
+| Tipos de datos | Constraints e índices | El tipo define el valor permitido y afecta el almacenamiento |
+| DDL, DML y DQL | Todos los temas | DDL crea estructuras, DML modifica registros y DQL consulta |
+| Constraints | `JOIN` y transacciones | Mantienen relaciones válidas entre tablas |
+| Normalización | `JOIN` | Separar la información suele requerir combinar tablas |
+| Índices | `EXPLAIN` | El plan de ejecución muestra si se aprovechan los índices |
+| DML | Transacciones | `INSERT`, `UPDATE` y `DELETE` suelen formar parte de transacciones |
+| Diseño | Performance | Una estructura correcta facilita consultas eficientes |
 
-Cada archivo tiene, al final, una seccion "Relacionado con" que apunta a estos vinculos, para que al repasar uno termines revisando dos o tres mas sin darte cuenta.
+---
 
-## Plantilla usada en cada archivo de teoria
+## Formato de cada guía
 
-Cada archivo sigue el mismo orden, pensado para leerse de corrido: primero se entiende el concepto, luego se ve como se escribe, despues se aplica a un caso real, se revisan los errores tipicos, y se cierra con un ejercicio para comprobar si quedo claro.
+Cada archivo se elaborará como material de teoría y repaso, no como informe académico. La estructura prevista es:
 
 ```markdown
-# Titulo del tema
+# Guía de Teoría y Repaso: Tema
 
-## Teoria
+## Explicación inicial
 
-## Sintaxis / codigo base
+## Conceptos principales
 
-## Ejemplo aplicado
+## Tablas comparativas
+
+## Sintaxis y código base
+
+## Ejemplos aplicados
+
+## Resultados simulados
 
 ## Errores comunes
 
-## Ejercicio
+## Práctica guiada
 
-## Relacionado con
+## Mini desafío final
+
+## Resumen
+
+## Relacionado con otros temas
 ```
 
-## Como repasar (sugerencia)
+Las tablas deben mostrar no solo los nombres de los conceptos, sino también sus características, ventajas, limitaciones, usos y resultados cuando sea necesario.
 
-1. Abre el README y elige un tema al azar (no en orden).
-2. Lee la Teoria y la Sintaxis, y antes de ver el Ejemplo intenta escribir tu propia consulta.
-3. Revisa el Ejemplo aplicado y los Errores comunes.
-4. Resuelve el Ejercicio del final sin ver la respuesta primero.
-5. Sigue al menos un link de "Relacionado con".
-6. Si te equivocaste en algo real (proyecto, practica), anotalo en `errores-que-cometi.md`.
+---
+
+## Ruta sugerida de aprendizaje
+
+1. [Tipos de datos](01-fundamentos/tipos-de-datos.md)
+2. [DDL, DML y DQL](01-fundamentos/ddl-dml-dql.md)
+3. Constraints
+4. Consultas básicas
+5. `JOIN` y subconsultas
+6. Agregaciones y funciones de ventana
+7. Diseño y normalización
+8. Vistas y programabilidad
+9. Índices y optimización
+10. Transacciones y concurrencia
+11. Seguridad y respaldos
+12. Ejercicios y casos prácticos
+
+> **Método de repaso.** Lee la teoría, observa las tablas, intenta escribir el código antes de mirar la solución y comprueba qué cambia en la estructura, en los registros o en el resultado de la consulta.
