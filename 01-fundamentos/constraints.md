@@ -1,4 +1,4 @@
-# Guía de Teoría y Repaso: Constraints o Restricciones en SQL
+# Constraints o Restricciones en SQL
 
 Esta guía reúne la teoría, los ejemplos y las prácticas necesarias para repasar cómo utilizar **constraints** o **restricciones** para proteger la integridad de los datos en una base de datos.
 
@@ -47,9 +47,6 @@ Los constraints forman parte del estándar SQL. Sin embargo, algunos detalles de
 - `PRIMARY KEY`: identifica cada fila y no permite `NULL` ni duplicados.
 - `UNIQUE`: evita valores repetidos, pero normalmente puede permitir uno o varios valores `NULL`, según el motor de base de datos.
 
-<blockquote style="border-left: 5px solid #6b7280; padding-left: 12px;">
-<strong>Compatibilidad entre motores.</strong> Desde MySQL 8.0.16, las restricciones `CHECK` se aplican realmente. En versiones anteriores, MySQL podía aceptar la sintaxis, pero ignorar la condición.
-</blockquote>
 
 ---
 
@@ -222,7 +219,7 @@ El registro es rechazado porque `15 >= 18` es falso.
 
 ```sql
 INSERT INTO clientes (email, edad)
-VALUES ('sofia@mail.com', 21);
+VALUES ('pedro@mail.com', 21);
 ```
 
 Este registro sí cumple la condición.
@@ -630,7 +627,7 @@ La operación fallaría porque la restricción `CHECK (edad >= 18)` no permite r
 
 ---
 
-## 16. Mini desafío final
+## 16. Ejercicio
 
 Crea una tabla `empleados` que cumpla estas condiciones:
 

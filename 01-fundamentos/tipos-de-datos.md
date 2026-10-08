@@ -680,7 +680,7 @@ TEXT
 
 ---
 
-## 16. Mini desafío final
+## 16. Ejercicio
 
 Crea una tabla `cursos` que cumpla estas condiciones:
 
